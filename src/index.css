@@ -3,8 +3,9 @@
 @plugin "daisyui"
 
 
+
 @plugin "daisyui/theme" {
-    name: "sih-project-2025-gyan-setu";
+    name: "gyansetu";
     default: true;
     prefersdark: false;
     color-scheme: "light";
