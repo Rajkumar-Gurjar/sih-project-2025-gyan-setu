@@ -38,3 +38,7 @@
     --depth: 1;
     --noise: 0;
 }
+
+:root{
+    font-family: 'Playfair Display', 'serif'
+}
