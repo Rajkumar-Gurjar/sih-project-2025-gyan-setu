@@ -13,7 +13,7 @@
 **Purpose**: Project initialization and basic structure
 
 - [X] T001 Initialize Dexie.js database schema in src/services/storage/dexie.db.ts
-- [ ] T002 Configure Workbox service worker for PWA in src/service-worker.ts
+- [X] T002 Configure Workbox service worker for PWA in src/service-worker.ts
 - [ ] T003 [P] Configure i18next for multilingual support in src/i18n/config.ts
 - [ ] T004 [P] Create shared Tailwind CSS v4 themes and DaisyUI v5 config in src/index.css
 
