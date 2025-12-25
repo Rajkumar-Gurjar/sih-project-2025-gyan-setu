@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
+import { LanguageSwitcher } from '../../molecules/LanguageSwitcher/LanguageSwitcher';
 
 /**
  * LessonViewerLayout provides a focused viewing environment for lessons.
- * It includes a minimal header with a back button and a slot for a language switcher.
+ * It includes a minimal header with a back button and a language switcher.
  */
 export const LessonViewerLayout: React.FC = () => {
     const navigate = useNavigate();
@@ -26,11 +27,7 @@ export const LessonViewerLayout: React.FC = () => {
                     <h1 className="text-lg font-semibold px-2">Lesson Viewer</h1>
                 </div>
                 <div className="flex-none gap-2">
-                    {/* Placeholder for LanguageSwitcher (T016) */}
-                    <div className="badge badge-outline gap-2 p-3">
-                        <span className="text-xs opacity-70">Language:</span>
-                        <span className="font-medium">Auto</span>
-                    </div>
+                    <LanguageSwitcher />
                 </div>
             </header>
             
