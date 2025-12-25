@@ -12,5 +12,22 @@
     "punjabi": "Punjabi",
     "hindi": "Hindi",
     "english": "English"
+  },
+  "progress": {
+    "title": "Your Progress",
+    "lessonsCompleted": "Lessons Completed",
+    "averageScore": "Average Score",
+    "recentActivity": "Recent Activity",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started"
+  },
+  "sync": {
+    "online": "Online",
+    "offline": "Offline",
+    "syncing": "Syncing progress...",
+    "synced": "Sync complete",
+    "failed": "Sync failed",
+    "retry": "Retry Sync"
   }
 }
