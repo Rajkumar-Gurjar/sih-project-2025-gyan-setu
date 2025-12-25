@@ -69,7 +69,7 @@
 
 ### Implementation for User Story 3
 
-- [ ] T018 [US3] Implement useContentDownload hook using Cache API in src/hooks/useContentDownload.ts
+- [X] T018 [US3] Implement useContentDownload hook using Cache API in src/hooks/useContentDownload.ts
 - [ ] T019 [US3] Implement Download Manager organism in src/components/organisms/DownloadManager/DownloadManager.tsx
 - [ ] T020 [US3] Integrate LRU cleanup into download flow to maintain 500MB limit in src/services/storage/cache.service.ts
 - [ ] T021 [P] [US3] Add Download Status badges to Lesson Cards in src/components/organisms/LessonCard/LessonCard.tsx
