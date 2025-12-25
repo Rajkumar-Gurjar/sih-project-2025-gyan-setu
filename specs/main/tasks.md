@@ -23,11 +23,11 @@
 
 **Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
 
-- [ ] T005 Create useAuthStore for session management in src/store/useAuthStore.ts
-- [ ] T006 Implement Auth API service in src/services/api/auth.service.ts
-- [ ] T007 Implement Sync Manager for cumulative merge logic in src/services/sync/syncManager.ts
-- [ ] T008 [P] Create LRU cleanup utility in src/utils/lru-cleanup.ts
-- [ ] T009 [P] Define core TypeScript interfaces in src/types/index.ts (User, Lesson, Progress)
+- [X] T005 Create useAuthStore for session management in src/store/useAuthStore.ts
+- [X] T006 Implement Auth API service in src/services/api/auth.service.ts
+- [X] T007 Implement Sync Manager for cumulative merge logic in src/services/sync/syncManager.ts
+- [X] T008 [P] Create LRU cleanup utility in src/utils/lru-cleanup.ts
+- [X] T009 [P] Define core TypeScript interfaces in src/types/index.ts (User, Lesson, Progress)
 
 ---
 
@@ -39,10 +39,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [US1] Implement registration logic in src/components/pages/SignUp/SignUp.tsx
-- [ ] T011 [US1] Implement login logic with exponential backoff in src/components/pages/Login/Login.tsx
-- [ ] T012 [P] [US1] Implement PIN input atom with 4-digit constraint in src/components/atoms/Input/PinInput.tsx
-- [ ] T013 [US1] Integrate Auth store with AuthLayout in src/components/layouts/AuthLayout/AuthLayout.tsx
+- [X] T010 [US1] Implement registration logic in src/components/pages/SignUp/SignUp.tsx
+- [X] T011 [US1] Implement login logic with exponential backoff in src/components/pages/Login/Login.tsx
+- [X] T012 [P] [US1] Implement PIN input atom with 4-digit constraint in src/components/atoms/Input/PinInput.tsx
+- [X] T013 [US1] Integrate Auth store with AuthLayout in src/components/layouts/AuthLayout/AuthLayout.tsx
 
 ---
 

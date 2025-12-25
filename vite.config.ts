@@ -39,4 +39,9 @@ export default defineConfig({
     })
   ],
   base: '/sih-project-2025-gyan-setu/',
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+  },
 })
