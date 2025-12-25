@@ -1,8 +1,9 @@
 import { http, HttpResponse } from 'msw';
+import type { LoginRequest, RegisterRequest } from '../services/api/auth.service';
 
 export const handlers = [
   http.post('/api/auth/login', async ({ request }) => {
-    const { phone, pin } = await request.json() as any;
+    const { phone, pin } = await request.json() as LoginRequest;
     
     if (phone === '1234567890' && pin === '1234') {
       return HttpResponse.json({
@@ -21,7 +22,7 @@ export const handlers = [
   }),
 
   http.post('/api/auth/register', async ({ request }) => {
-    const data = await request.json() as any;
+    const data = await request.json() as RegisterRequest;
     
     return HttpResponse.json({
       user: {

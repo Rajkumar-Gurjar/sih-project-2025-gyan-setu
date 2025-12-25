@@ -18,6 +18,17 @@ export const SignUp: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
+
+        if (phone.length < 10) {
+            setError('Phone number must be at least 10 digits');
+            return;
+        }
+
+        if (pin.length !== 4) {
+            setError('PIN must be exactly 4 digits');
+            return;
+        }
+
         setIsLoading(true);
 
         try {

@@ -1,4 +1,5 @@
 import { db } from '../services/storage/dexie.db';
+import type { Lesson, MediaItem } from '../types';
 
 const STORAGE_LIMIT_MB = 500;
 const STORAGE_LIMIT_BYTES = STORAGE_LIMIT_MB * 1024 * 1024;
@@ -14,8 +15,8 @@ export const lruCleanup = {
       .equals('downloaded')
       .sortBy('lastAccessed');
 
-    let totalUsage = downloadedLessons.reduce((acc, lesson) => {
-      const mediaSize = lesson.media.reduce((sum, item) => sum + (item.size || 0), 0);
+    let totalUsage = downloadedLessons.reduce((acc: number, lesson: Lesson) => {
+      const mediaSize = lesson.media.reduce((sum: number, item: MediaItem) => sum + (item.size || 0), 0);
       return acc + mediaSize;
     }, 0);
 
@@ -25,7 +26,7 @@ export const lruCleanup = {
       for (const lesson of downloadedLessons) {
         if (totalUsage <= STORAGE_LIMIT_BYTES) break;
 
-        const lessonSize = lesson.media.reduce((sum, item) => sum + (item.size || 0), 0);
+        const lessonSize = lesson.media.reduce((sum: number, item: MediaItem) => sum + (item.size || 0), 0);
         
         // Update lesson status to 'not_downloaded'
         // In a real app (Phase 5), this would also involve clearing actual Cache API storage
@@ -48,8 +49,8 @@ export const lruCleanup = {
       .equals('downloaded')
       .toArray();
 
-    return downloadedLessons.reduce((acc, lesson) => {
-      return acc + lesson.media.reduce((sum, item) => sum + (item.size || 0), 0);
+    return downloadedLessons.reduce((acc: number, lesson: Lesson) => {
+      return acc + lesson.media.reduce((sum: number, item: MediaItem) => sum + (item.size || 0), 0);
     }, 0);
   }
 };

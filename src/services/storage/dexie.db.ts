@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { User, Lesson, Progress } from '../types';
+import type { User, Lesson, Progress } from '../../types';
 
 export interface OfflineQueueItem {
   id?: number;

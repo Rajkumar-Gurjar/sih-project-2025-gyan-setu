@@ -22,7 +22,7 @@ export interface MediaItem {
 export interface Lesson {
   id: string;
   title: Record<SupportedLanguage, string>;
-  content: Record<SupportedLanguage, any>; // Flexible for JSON or HTML
+  content: Record<SupportedLanguage, string | object>; // Flexible for JSON or HTML
   media: MediaItem[];
   subject: string;
   grade: number; // Integer as per data-model.md
