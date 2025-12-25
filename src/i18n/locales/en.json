@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "phone": "Phone Number",
+    "pin": "4-Digit PIN",
+    "welcome": "Welcome back"
+  },
+  "common": {
+    "download": "Download",
+    "language": "Language",
+    "punjabi": "Punjabi",
+    "hindi": "Hindi",
+    "english": "English"
+  }
+}
