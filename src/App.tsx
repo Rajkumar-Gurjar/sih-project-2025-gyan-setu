@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MainLayout } from './components/layouts/MainLayout/MainLayout';
 import { AuthLayout } from './components/layouts/AuthLayout/AuthLayout';
+import { LessonViewerLayout } from './components/layouts/LessonViewerLayout/LessonViewerLayout';
 import { Home } from './components/pages/Home/Home';
 import { Login } from './components/pages/Login/Login';
 import { SignUp } from './components/pages/SignUp/SignUp';
+import { LessonViewer } from './components/pages/LessonViewer/LessonViewer';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -30,6 +32,16 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <div className="p-4 text-2xl">Profile Page (Coming Soon)</div>,
+      },
+    ],
+  },
+  {
+    path: '/view',
+    element: <LessonViewerLayout />,
+    children: [
+      {
+        path: ':id',
+        element: <LessonViewer />,
       },
     ],
   },

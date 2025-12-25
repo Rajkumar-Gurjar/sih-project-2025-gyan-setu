@@ -54,10 +54,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Create Lesson Viewer layout in src/components/layouts/LessonViewerLayout/LessonViewerLayout.tsx
-- [ ] T015 [US2] Implement Lesson Viewer page with hot-reloading in src/components/pages/LessonViewer/LessonViewer.tsx
-- [ ] T016 [P] [US2] Create Language Switcher molecule in src/components/molecules/LanguageSwitcher/LanguageSwitcher.tsx
-- [ ] T017 [US2] Implement useMultilingual hook for content switching in src/hooks/useMultilingual.ts
+- [X] T014 [US2] Create Lesson Viewer layout in src/components/layouts/LessonViewerLayout/LessonViewerLayout.tsx
+- [X] T015 [US2] Implement Lesson Viewer page with hot-reloading in src/components/pages/LessonViewer/LessonViewer.tsx
+- [X] T016 [P] [US2] Create Language Switcher molecule in src/components/molecules/LanguageSwitcher/LanguageSwitcher.tsx
+- [X] T017 [US2] Implement useMultilingual hook for content switching in src/hooks/useMultilingual.ts
 
 ---
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LanguageSwitcher } from '../../molecules/LanguageSwitcher/LanguageSwitcher';
 
 export const Header: React.FC = () => {
     return (
@@ -8,9 +9,10 @@ export const Header: React.FC = () => {
                 <Link to="/" className="btn btn-ghost text-xl">Gyan Setu</Link>
             </div>
             <div className="flex-none gap-2">
-                <div className="form-control">
+                <div className="form-control hidden md:block">
                     <input type="text" placeholder="Search lessons..." className="input input-bordered w-24 md:w-auto text-base-content" />
                 </div>
+                <LanguageSwitcher />
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
