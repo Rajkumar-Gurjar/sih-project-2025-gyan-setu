@@ -18,7 +18,7 @@ export class GyanSetuDatabase extends Dexie {
     super('GyanSetuDB');
     this.version(1).stores({
       users: 'id, &phone',
-      lessons: 'id, lastAccessed, subject, grade',
+      lessons: 'id, lastAccessed, subject, grade, downloadStatus',
       progress: '[userId+lessonId], userId, lessonId',
       offline_queue: '++id, timestamp'
     });

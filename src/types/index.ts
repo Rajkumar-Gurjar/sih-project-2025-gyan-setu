@@ -11,15 +11,21 @@ export interface User {
 
 export type DownloadStatus = 'not_downloaded' | 'pending' | 'downloaded';
 
+export interface MediaItem {
+  type: 'video' | 'image';
+  url: string;
+  size: number;
+}
+
 export interface Lesson {
   id: string;
   title: Record<string, string>; // Multilingual titles
   content: Record<string, string>; // Multilingual content (HTML/JSON string)
-  mediaUrls: string[];
+  media: MediaItem[];
   subject: string;
   grade: string;
   downloadStatus: DownloadStatus;
-  lastAccessed?: number;
+  lastAccessed: number;
 }
 
 export type ProgressStatus = 'not_started' | 'in_progress' | 'completed';
