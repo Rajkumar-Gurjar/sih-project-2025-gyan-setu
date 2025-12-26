@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import { MainLayout } from './components/layouts/MainLayout/MainLayout';
+import { StudentDashboardLayout } from './components/layouts/StudentDashboardLayout/StudentDashboardLayout';
 import { AuthLayout } from './components/layouts/AuthLayout/AuthLayout';
 import { LessonViewerLayout } from './components/layouts/LessonViewerLayout/LessonViewerLayout';
 import { Spinner } from './components/atoms/Spinner/Spinner';
@@ -13,6 +13,7 @@ const Home = lazy(() => import('./components/pages/Home/Home').then(module => ({
 const Login = lazy(() => import('./components/pages/Login/Login').then(module => ({ default: module.Login })));
 const SignUp = lazy(() => import('./components/pages/SignUp/SignUp').then(module => ({ default: module.SignUp })));
 const LessonViewer = lazy(() => import('./components/pages/LessonViewer/LessonViewer').then(module => ({ default: module.LessonViewer })));
+const StudentDashboard = lazy(() => import('./components/pages/StudentDashboard/StudentDashboard').then(module => ({ default: module.StudentDashboard })));
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<div className="h-screen w-full flex items-center justify-center"><Spinner /></div>}>
@@ -41,11 +42,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/app',
-    element: <MainLayout />,
+    element: <StudentDashboardLayout />,
     children: [
       {
         path: 'dashboard',
-        element: <div className="p-4 text-2xl">Student Dashboard (Coming Soon)</div>,
+        element: <SuspenseWrapper><StudentDashboard /></SuspenseWrapper>,
       },
       {
         path: 'lessons',
@@ -62,6 +63,18 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <div className="p-4 text-2xl">Profile Page (Coming Soon)</div>,
+      },
+      {
+        path: 'library',
+        element: <div className="p-4 text-2xl">Library Page (Coming Soon)</div>,
+      },
+      {
+        path: 'achievements',
+        element: <div className="p-4 text-2xl">Achievements Page (Coming Soon)</div>,
+      },
+      {
+        path: 'settings',
+        element: <div className="p-4 text-2xl">Settings Page (Coming Soon)</div>,
       },
     ],
   },

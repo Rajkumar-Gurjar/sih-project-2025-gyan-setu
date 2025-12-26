@@ -72,13 +72,26 @@
   --color-background-light: #f6f8f6;
   --color-background-dark: #152012;
   --color-accent-dark: #2e4328;
+  --color-surface-dark: #1e2b1a;
+  --color-surface-light: #ffffff;
+  --color-primary: #53d22d;
+
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 2.5rem;
 
   --breakpoint-xs: 375px;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
 }
 
 :root {
