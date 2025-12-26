@@ -199,6 +199,13 @@
   --color-support-border-dark: #2d4625;
   --color-support-text-sec: #a0c695;
 
+  /* Forgot Password Page Colors */
+  --color-forgot-primary: #4cdf20;
+  --color-forgot-bg-dark: #152111;
+  --color-forgot-card-dark: #1c2e18;
+  --color-forgot-input-dark: #24381f;
+  --color-forgot-border-dark: #36522e;
+
   --radius: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;

@@ -25,6 +25,7 @@ const AdminDashboard = lazy(() => import('./components/pages/AdminDashboard/Admi
 const Profile = lazy(() => import('./components/pages/Profile/Profile').then(module => ({ default: module.Profile })));
 const Settings = lazy(() => import('./components/pages/Settings/Settings').then(module => ({ default: module.Settings })));
 const Support = lazy(() => import('./components/pages/Support/Support').then(module => ({ default: module.Support })));
+const ForgotPassword = lazy(() => import('./components/pages/ForgotPassword/ForgotPassword').then(module => ({ default: module.ForgotPassword })));
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<div className="h-screen w-full flex items-center justify-center"><Spinner /></div>}>
@@ -148,6 +149,10 @@ const router = createBrowserRouter([
   {
     path: '/support',
     element: <SuspenseWrapper><Support /></SuspenseWrapper>,
+  },
+  {
+    path: '/forgot-password',
+    element: <SuspenseWrapper><ForgotPassword /></SuspenseWrapper>,
   },
   {
     path: '*',
