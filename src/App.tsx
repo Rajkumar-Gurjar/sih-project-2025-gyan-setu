@@ -26,6 +26,7 @@ const Profile = lazy(() => import('./components/pages/Profile/Profile').then(mod
 const Settings = lazy(() => import('./components/pages/Settings/Settings').then(module => ({ default: module.Settings })));
 const Support = lazy(() => import('./components/pages/Support/Support').then(module => ({ default: module.Support })));
 const ForgotPassword = lazy(() => import('./components/pages/ForgotPassword/ForgotPassword').then(module => ({ default: module.ForgotPassword })));
+const ForgotPasswordConfirmation = lazy(() => import('./components/pages/ForgotPassword/ForgotPasswordConfirmation').then(module => ({ default: module.ForgotPasswordConfirmation })));
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<div className="h-screen w-full flex items-center justify-center"><Spinner /></div>}>
@@ -153,6 +154,10 @@ const router = createBrowserRouter([
   {
     path: '/forgot-password',
     element: <SuspenseWrapper><ForgotPassword /></SuspenseWrapper>,
+  },
+  {
+    path: '/forgot-password-confirmation',
+    element: <SuspenseWrapper><ForgotPasswordConfirmation /></SuspenseWrapper>,
   },
   {
     path: '*',
