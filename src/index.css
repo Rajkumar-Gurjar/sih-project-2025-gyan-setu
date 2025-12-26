@@ -112,6 +112,14 @@
   --color-progress-card-dark: #2d4625;
   --color-progress-subtle-text: #a0c695;
 
+  /* Digital Literacy Page Colors */
+  --color-digilit-primary: #4cdf20;
+  --color-digilit-primary-dark: #3ab516;
+  --color-digilit-bg-dark: #152111;
+  --color-digilit-surface-dark: #1e2e1b;
+  --color-digilit-surface-highlight: #2d4625;
+  --color-digilit-text-sec: #a0c695;
+
   --radius: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
