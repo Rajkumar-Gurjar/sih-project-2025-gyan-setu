@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { StudentDashboardLayout } from './components/layouts/StudentDashboardLayout/StudentDashboardLayout';
+import { TeacherDashboardLayout } from './components/layouts/TeacherDashboardLayout/TeacherDashboardLayout';
 import { AuthLayout } from './components/layouts/AuthLayout/AuthLayout';
 import { LessonViewerLayout } from './components/layouts/LessonViewerLayout/LessonViewerLayout';
 import { Spinner } from './components/atoms/Spinner/Spinner';
@@ -14,6 +15,7 @@ const Login = lazy(() => import('./components/pages/Login/Login').then(module =>
 const SignUp = lazy(() => import('./components/pages/SignUp/SignUp').then(module => ({ default: module.SignUp })));
 const LessonViewer = lazy(() => import('./components/pages/LessonViewer/LessonViewer').then(module => ({ default: module.LessonViewer })));
 const StudentDashboard = lazy(() => import('./components/pages/StudentDashboard/StudentDashboard').then(module => ({ default: module.StudentDashboard })));
+const TeacherDashboard = lazy(() => import('./components/pages/TeacherDashboard/TeacherDashboard').then(module => ({ default: module.TeacherDashboard })));
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<div className="h-screen w-full flex items-center justify-center"><Spinner /></div>}>
@@ -71,6 +73,32 @@ const router = createBrowserRouter([
       {
         path: 'achievements',
         element: <div className="p-4 text-2xl">Achievements Page (Coming Soon)</div>,
+      },
+      {
+        path: 'settings',
+        element: <div className="p-4 text-2xl">Settings Page (Coming Soon)</div>,
+      },
+    ],
+  },
+  {
+    path: '/teacher',
+    element: <TeacherDashboardLayout />,
+    children: [
+      {
+        path: 'dashboard',
+        element: <SuspenseWrapper><TeacherDashboard /></SuspenseWrapper>,
+      },
+      {
+        path: 'students',
+        element: <div className="p-4 text-2xl">Students Page (Coming Soon)</div>,
+      },
+      {
+        path: 'lessons',
+        element: <div className="p-4 text-2xl">Lessons Page (Coming Soon)</div>,
+      },
+      {
+        path: 'reports',
+        element: <div className="p-4 text-2xl">Reports Page (Coming Soon)</div>,
       },
       {
         path: 'settings',
