@@ -36,11 +36,11 @@ const router = createBrowserRouter([
         path: 'login',
         element: <SuspenseWrapper><Login /></SuspenseWrapper>,
       },
-      {
-        path: 'signup',
-        element: <SuspenseWrapper><SignUp /></SuspenseWrapper>,
-      },
     ],
+  },
+  {
+    path: 'signup',
+    element: <SuspenseWrapper><SignUp /></SuspenseWrapper>,
   },
   {
     path: '/app',

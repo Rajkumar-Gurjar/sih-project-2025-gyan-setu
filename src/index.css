@@ -83,10 +83,20 @@
   --color-login-border-dark: #3f6732;
   --color-login-text-sec: #9fc992;
 
+  /* Sign Up Page Colors */
+  --color-signup-primary: #4cdf20;
+  --color-signup-primary-hover: #3bb316;
+  --color-signup-bg-light: #f6f8f6;
+  --color-signup-bg-dark: #152111;
+  --color-signup-surface-dark: #20321b;
+  --color-signup-border-dark: #406336;
+  --color-signup-text-sec: #a0c695;
+
   --radius: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
   --radius-2xl: 2.5rem;
+  --radius-3xl: 3rem;
 
   --breakpoint-xs: 375px;
 }
@@ -103,6 +113,14 @@
 
 :root {
   font-family: var(--font-sans);
+}
+
+.font-lexend {
+  font-family: 'Lexend', var(--font-sans);
+}
+
+.font-noto {
+  font-family: 'Noto Sans', var(--font-sans);
 }
 
 h1, h2, h3, h4, .font-serif {
