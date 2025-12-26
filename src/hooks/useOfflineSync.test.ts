@@ -3,6 +3,7 @@ import { useOfflineSync } from './useOfflineSync';
 import { useAuthStore } from '../store/useAuthStore';
 import { syncManager } from '../services/sync/syncManager';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
+import type { User } from '../types';
 
 vi.mock('../services/sync/syncManager', () => ({
   syncManager: {
@@ -29,8 +30,15 @@ describe('useOfflineSync', () => {
   });
 
   it('should trigger sync when going online if authenticated', async () => {
-    const mockUser = { id: 'u1', syncToken: 't1' };
-    useAuthStore.getState().login(mockUser as any, 'token');
+    const mockUser: User = { 
+      id: 'u1', 
+      syncToken: 't1',
+      name: 'Test',
+      phone: '1234567890',
+      role: 'student',
+      languagePreference: 'en'
+    };
+    useAuthStore.getState().login(mockUser, 'token');
     
     vi.mocked(syncManager.performSync).mockResolvedValue('t2');
 
@@ -67,8 +75,15 @@ describe('useOfflineSync', () => {
   });
 
   it('should update sync token in store on success', async () => {
-    const mockUser = { id: 'u1', syncToken: 't1' };
-    useAuthStore.getState().login(mockUser as any, 'token');
+    const mockUser: User = { 
+      id: 'u1', 
+      syncToken: 't1',
+      name: 'Test',
+      phone: '1234567890',
+      role: 'student',
+      languagePreference: 'en'
+    };
+    useAuthStore.getState().login(mockUser, 'token');
     
     vi.mocked(syncManager.performSync).mockResolvedValue('new-token');
 
@@ -82,8 +97,15 @@ describe('useOfflineSync', () => {
   });
 
   it('should handle sync errors', async () => {
-    const mockUser = { id: 'u1', syncToken: 't1' };
-    useAuthStore.getState().login(mockUser as any, 'token');
+    const mockUser: User = { 
+      id: 'u1', 
+      syncToken: 't1',
+      name: 'Test',
+      phone: '1234567890',
+      role: 'student',
+      languagePreference: 'en'
+    };
+    useAuthStore.getState().login(mockUser, 'token');
     
     vi.mocked(syncManager.performSync).mockRejectedValue(new Error('Network error'));
 

@@ -13,18 +13,25 @@ vi.mock('../../../hooks/useOfflineSync', () => ({
   useOfflineSync: vi.fn(),
 }));
 
+type UseOfflineSyncReturn = {
+  isOnline: boolean;
+  isSyncing: boolean;
+  lastSyncError: string | null;
+  triggerSync: () => Promise<void>;
+};
+
 describe('SyncStatus', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it('renders online status correctly', () => {
-    (useOfflineSync as any).mockReturnValue({
+    vi.mocked(useOfflineSync).mockReturnValue({
       isOnline: true,
       isSyncing: false,
       lastSyncError: null,
       triggerSync: vi.fn(),
-    });
+    } as UseOfflineSyncReturn);
 
     render(<SyncStatus />);
     expect(screen.getByText('sync.online')).toBeInTheDocument();
@@ -32,24 +39,24 @@ describe('SyncStatus', () => {
   });
 
   it('renders offline status correctly', () => {
-    (useOfflineSync as any).mockReturnValue({
+    vi.mocked(useOfflineSync).mockReturnValue({
       isOnline: false,
       isSyncing: false,
       lastSyncError: null,
       triggerSync: vi.fn(),
-    });
+    } as UseOfflineSyncReturn);
 
     render(<SyncStatus />);
     expect(screen.getByText('sync.offline')).toBeInTheDocument();
   });
 
   it('renders syncing status', () => {
-    (useOfflineSync as any).mockReturnValue({
+    vi.mocked(useOfflineSync).mockReturnValue({
       isOnline: true,
       isSyncing: true,
       lastSyncError: null,
       triggerSync: vi.fn(),
-    });
+    } as UseOfflineSyncReturn);
 
     render(<SyncStatus />);
     expect(screen.getByText('sync.syncing')).toBeInTheDocument();
@@ -57,12 +64,12 @@ describe('SyncStatus', () => {
 
   it('renders error status and allows retry', () => {
     const triggerSync = vi.fn();
-    (useOfflineSync as any).mockReturnValue({
+    vi.mocked(useOfflineSync).mockReturnValue({
       isOnline: true,
       isSyncing: false,
       lastSyncError: 'Connection timeout',
       triggerSync,
-    });
+    } as UseOfflineSyncReturn);
 
     render(<SyncStatus />);
     expect(screen.getByText('sync.retry')).toBeInTheDocument();

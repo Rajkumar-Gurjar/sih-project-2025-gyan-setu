@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { ProgressDashboard } from './ProgressDashboard';
-import { useProgressStore } from '../../../store/useProgressStore';
+import { useProgressStore, type ProgressState } from '../../../store/useProgressStore';
 import { useAuthStore } from '../../../store/useAuthStore';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
+import type { AuthState, User } from '../../../types';
 
 vi.mock('../../../store/useProgressStore', () => ({
   useProgressStore: vi.fn(),
@@ -14,7 +15,14 @@ vi.mock('../../../store/useAuthStore', () => ({
 }));
 
 describe('ProgressDashboard', () => {
-  const mockUser = { id: 'user-123', name: 'Test Student' };
+  const mockUser: User = { 
+    id: 'user-123', 
+    name: 'Test Student',
+    phone: '1234567890',
+    role: 'student',
+    languagePreference: 'en'
+  };
+
   const mockProgress = {
     'lesson-1': {
       lessonId: 'lesson-1',
@@ -32,12 +40,12 @@ describe('ProgressDashboard', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (useAuthStore as any).mockReturnValue({ user: mockUser });
-    (useProgressStore as any).mockReturnValue({
+    vi.mocked(useAuthStore).mockReturnValue({ user: mockUser } as unknown as AuthState);
+    vi.mocked(useProgressStore).mockReturnValue({
       progress: mockProgress,
       fetchProgress: vi.fn(),
       isLoading: false,
-    });
+    } as unknown as ProgressState);
   });
 
   it('renders summary statistics correctly', async () => {
@@ -54,11 +62,11 @@ describe('ProgressDashboard', () => {
   });
 
   it('renders "no activity" message when progress is empty', () => {
-    (useProgressStore as any).mockReturnValue({
+    vi.mocked(useProgressStore).mockReturnValue({
       progress: {},
       fetchProgress: vi.fn(),
       isLoading: false,
-    });
+    } as unknown as ProgressState);
 
     render(
       <MemoryRouter>
@@ -70,11 +78,11 @@ describe('ProgressDashboard', () => {
   });
 
   it('shows loading spinner when isLoading is true', () => {
-    (useProgressStore as any).mockReturnValue({
+    vi.mocked(useProgressStore).mockReturnValue({
       progress: {},
       fetchProgress: vi.fn(),
       isLoading: true,
-    });
+    } as unknown as ProgressState);
 
     render(
       <MemoryRouter>
